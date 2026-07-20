@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://tyvdduxqbfsp"]
 
-[node name="Ice" type="Node2D" unique_id=91745543]
+[ext_resource type="Script" uid="uid://dfu7xseyk61su" path="res://scripts/ice.gd" id="1_hdoyw"]
+[ext_resource type="Texture2D" uid="uid://bdjgfkq88wvt3" path="res://assets/ice1.tres" id="1_loxpn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(8, 8)
+
+[node name="Ice" type="StaticBody2D" unique_id=649495491]
+collision_mask = 3
+script = ExtResource("1_hdoyw")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=625201727]
+texture = ExtResource("1_loxpn")
+centered = false
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=481631762]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.56290084, 0.39457396, 1, 0.41960785)

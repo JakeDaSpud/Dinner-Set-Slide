@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://doxna3eha437s"]
+
+[ext_resource type="Texture2D" uid="uid://bc2jrnkfa0muf" path="res://assets/spritesheet.png" id="1_fgy51"]
+[ext_resource type="Script" uid="uid://bfhcs6j62rew0" path="res://scripts/dinner_set.gd" id="1_nx5s0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(40, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx5s0"]
+atlas = ExtResource("1_fgy51")
+region = Rect2(0, 8, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiupe"]
+atlas = ExtResource("1_fgy51")
+region = Rect2(0, 24, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6n07"]
+atlas = ExtResource("1_fgy51")
+region = Rect2(8, 24, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx5s0")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uiupe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6n07")
+}],
+"loop": 1,
+"name": &"penguin_sitting",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgy51"]
+atlas = ExtResource("1_fgy51")
+region = Rect2(8, 8, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diegb"]
+atlas = ExtResource("1_fgy51")
+region = Rect2(24, 8, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgy51")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diegb")
+}],
+"loop": 0,
+"name": &"tv",
+"speed": 4.0
+}]
+
+[node name="DinnerSet" type="Area2D" unique_id=813968069]
+script = ExtResource("1_nx5s0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=604989766]
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.51822186, 0.57680464, 1.92523e-07, 0.41960785)
+
+[node name="Chair" type="AnimatedSprite2D" parent="." unique_id=497549561]
+position = Vector2(-12, -8)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+centered = false
+
+[node name="Decoration" type="AnimatedSprite2D" parent="." unique_id=1970183575]
+position = Vector2(4, 0)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
