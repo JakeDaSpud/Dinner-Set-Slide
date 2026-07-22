@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d0omugmow0cey"]
+
+[ext_resource type="Script" uid="uid://0b0181obm3u6" path="res://scenes/star.gd" id="1_j6vao"]
+[ext_resource type="Texture2D" uid="uid://bc2jrnkfa0muf" path="res://assets/spritesheet.png" id="1_mcqwg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6vao"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(48, 32, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef0hr"]
+atlas = ExtResource("1_mcqwg")
+region = Rect2(56, 32, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6vao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef0hr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Star" type="Area2D" unique_id=58272148]
+collision_layer = 5
+script = ExtResource("1_j6vao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=767692556]
+shape = SubResource("CircleShape2D_g4v7s")
+debug_color = Color(0, 0.6494004, 0.1575216, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1396442157]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.8001553
+
+[node name="Timer" type="Timer" parent="." unique_id=2083339042]

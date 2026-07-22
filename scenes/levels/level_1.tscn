@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d12c00n8wx7gf" path="res://scenes/player.tscn" id="3_nsrm0"]
 [ext_resource type="PackedScene" uid="uid://ctcd4618i4ke3" path="res://scenes/spike.tscn" id="4_x42e6"]
 [ext_resource type="PackedScene" uid="uid://doxna3eha437s" path="res://scenes/dinner_set.tscn" id="5_6761a"]
+[ext_resource type="PackedScene" uid="uid://d0omugmow0cey" path="res://scenes/star.tscn" id="6_sk5k4"]
 
 [node name="Game" type="Node2D" unique_id=1721283538]
 
@@ -22,8 +23,6 @@ navigation_enabled = false
 
 [node name="Player" parent="." unique_id=1553890643 instance=ExtResource("3_nsrm0")]
 position = Vector2(72, 48)
-left_border = 48.0
-right_border = 192.0
 
 [node name="Level" type="Node2D" parent="." unique_id=514538347]
 
@@ -236,3 +235,7 @@ tile_set = ExtResource("1_ksju7")
 
 [node name="DinnerSet" parent="." unique_id=813968069 instance=ExtResource("5_6761a")]
 position = Vector2(132, 128)
+
+[node name="Star" parent="." unique_id=1570105543 instance=ExtResource("6_sk5k4")]
+position = Vector2(40, 72)
+is_player = true

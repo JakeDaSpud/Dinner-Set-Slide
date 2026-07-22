@@ -4,6 +4,9 @@ const HOLD_TO_QUIT_DURATION: float = 2.0
 var _quit_timer: float = 0.0
 var _holding_quit: bool = false
 
+enum CONTROL_TYPE { NULL, KEYBOARD, MOUSE, GAMEPAD }
+var last_used_control_type: CONTROL_TYPE = CONTROL_TYPE.NULL
+
 const TIME_BETWEEN_LEVELS: float = 6.0
 
 signal on_level_completed
@@ -31,6 +34,13 @@ func _input(event: InputEvent) -> void:
 		_stop_quit()
 	if event.is_action_pressed("restart_level"):
 		_restart_level()
+	
+	if event is InputEventKey:
+		last_used_control_type = CONTROL_TYPE.KEYBOARD
+	elif event is InputEventMouse:
+		last_used_control_type = CONTROL_TYPE.MOUSE
+	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		last_used_control_type = CONTROL_TYPE.GAMEPAD
 
 
 func _ready() -> void:

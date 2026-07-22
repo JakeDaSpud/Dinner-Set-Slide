@@ -8,15 +8,23 @@ const ICE_MIDDLE: Texture2D = preload("res://assets/ice2.tres")
 const ICE_SMALL: Texture2D = preload("res://assets/ice3.tres")
 
 @export var size: SIZE = SIZE.NULL
-@export var melt_progress: int = -1 # 100 is large, 60 turns to middle, 30 turns to small, 0 is melted!
+var _rectangle_shape: RectangleShape2D
+@export var melt_progress: float = -1 # 100 is large, 60 turns to middle, 30 turns to small, 0 is melted!
 
 
 func _ready() -> void:
 	self.size = SIZE.LARGE
+	_rectangle_shape = RectangleShape2D.new()
+	_change_collision_shape(8, 8)
 	self.melt_progress = 100
 
 
-func _update_melt_progress(decrement: int = 1) -> void:
+func _change_collision_shape(x: int, y: int) -> void:
+	_rectangle_shape.size = Vector2(x, y)
+	$PlayerCollision.shape = _rectangle_shape
+
+
+func update_melt_progress(decrement: float = 1) -> void:
 	melt_progress -= decrement
 	
 	if melt_progress <= 0:
@@ -34,11 +42,13 @@ func _update_melt_progress(decrement: int = 1) -> void:
 
 func _change_to_middle() -> void:
 	self.size = SIZE.MIDDLE
+	_change_collision_shape(6, 6)
 	$Sprite.texture = ICE_MIDDLE
 
 
 func _change_to_small() -> void:
 	self.size = SIZE.SMALL
+	_change_collision_shape(2, 2)
 	$Sprite.texture = ICE_SMALL
 
 
@@ -47,7 +57,3 @@ func _melt() -> void:
 	$PlayerCollision.disabled = true
 	$Sprite.hide()
 	self.process_mode = Node.PROCESS_MODE_DISABLED
-
-
-func _physics_process(delta: float) -> void:
-	pass
