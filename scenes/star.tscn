@@ -27,6 +27,15 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_j6vao"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d0u6y"]
+gradient = SubResource("Gradient_j6vao")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.78)
+
 [node name="Star" type="Area2D" unique_id=58272148]
 collision_layer = 5
 script = ExtResource("1_j6vao")
@@ -40,3 +49,8 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 frame_progress = 0.8001553
 
 [node name="Timer" type="Timer" parent="." unique_id=2083339042]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1963216527]
+color = Color(0.9735091, 0.8837145, 0.3779155, 1)
+energy = 0.4
+texture = SubResource("GradientTexture2D_d0u6y")

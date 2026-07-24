@@ -50,6 +50,7 @@ size = Vector2(1, 4)
 [node name="Player" type="CharacterBody2D" unique_id=1553890643]
 floor_block_on_wall = false
 floor_snap_length = 5.0
+platform_on_leave = 1
 script = ExtResource("1_g2els")
 
 [node name="Head" type="AnimatedSprite2D" parent="." unique_id=1944970288]

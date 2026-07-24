@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Dinner Set Slide"
+config/description="An ice-melting puzzle game."
 run/main_scene="uid://d2mlkxe5wao2h"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+run/max_fps=60
+boot_splash/bg_color=Color(0.3882353, 0.29411766, 0.49019608, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="uid://d2qvlk7qxgex7"
+config/icon="uid://h2r6atj2f3jt"
+boot_splash/minimum_display_time=5000
 
 [autoload]
 
@@ -23,7 +29,8 @@ GameManager="*uid://bxkns2xqyhogp"
 
 window/size/viewport_width=240
 window/size/viewport_height=160
-window/size/borderless=true
+window/size/mode=2
+window/size/initial_position_type=5
 window/size/sharp_corners=true
 window/stretch/mode="viewport"
 
