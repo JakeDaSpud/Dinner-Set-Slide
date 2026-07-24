@@ -18,6 +18,7 @@ var _visuals_tween: Tween
 @export var burn_damage: float = 5.0
 @export var burn_radius: float = 5.0
 @export var burn_interval: float = 0.1
+@export var remove_light: bool = false
 var ice_in_range: Array[Ice] = []
 
 
@@ -27,6 +28,8 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 	if is_player:
 		GameManager.on_level_completed.connect(_disappear)
+	if remove_light:
+		$PointLight2D.queue_free()
 
 
 func _disappear() -> void:
@@ -128,7 +131,7 @@ func _visuals_setup() -> void:
 func _physics_process(_delta: float) -> void:
 	if is_player and GameManager.last_used_control_type == GameManager.CONTROL_TYPE.MOUSE:
 		self.position = get_global_mouse_position()
-	else:
+	elif is_player:
 		var move_dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		var snapped_pos: Vector2 = Vector2(snapped(self.position.x, 4), snapped(self.position.y, 4))
 		self.position = snapped_pos + (move_dir * 4)

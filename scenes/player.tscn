@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
-radius = 2.0
+radius = 3.0
 height = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
@@ -49,7 +49,7 @@ size = Vector2(1, 4)
 
 [node name="Player" type="CharacterBody2D" unique_id=1553890643]
 floor_block_on_wall = false
-floor_snap_length = 5.0
+floor_snap_length = 2.0
 platform_on_leave = 1
 script = ExtResource("1_g2els")
 
@@ -62,7 +62,7 @@ position = Vector2(-4, 4)
 sprite_frames = SubResource("SpriteFrames_qhqgy")
 
 [node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=1396114826]
-position = Vector2(-1, 6)
+position = Vector2(-1, 5)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_g4v7s")
 
