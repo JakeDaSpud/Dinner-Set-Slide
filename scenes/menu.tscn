@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d12c00n8wx7gf" path="res://scenes/player.tscn" id="3_6qf5j"]
 [ext_resource type="PackedScene" uid="uid://tyvdduxqbfsp" path="res://scenes/ice.tscn" id="4_lt4mj"]
 [ext_resource type="PackedScene" uid="uid://doxna3eha437s" path="res://scenes/dinner_set.tscn" id="6_dnrjr"]
+[ext_resource type="PackedScene" uid="uid://ctcd4618i4ke3" path="res://scenes/spike.tscn" id="6_v86rl"]
 [ext_resource type="PackedScene" uid="uid://d0omugmow0cey" path="res://scenes/star.tscn" id="7_varmo"]
 
 [sub_resource type="Theme" id="Theme_33tfr"]
@@ -451,6 +452,38 @@ burn_damage = 0.5
 burn_radius = 16.0
 burn_interval = 0.3
 remove_light = true
+
+[node name="Spikes" type="Node2D" parent="Title" unique_id=790558675]
+
+[node name="Spike" parent="Title/Spikes" unique_id=1756686965 instance=ExtResource("6_v86rl")]
+position = Vector2(80, 152)
+
+[node name="Spike2" parent="Title/Spikes" unique_id=1531116196 instance=ExtResource("6_v86rl")]
+position = Vector2(88, 152)
+
+[node name="Spike3" parent="Title/Spikes" unique_id=1392441278 instance=ExtResource("6_v86rl")]
+position = Vector2(96, 152)
+
+[node name="Spike4" parent="Title/Spikes" unique_id=1714910869 instance=ExtResource("6_v86rl")]
+position = Vector2(104, 152)
+
+[node name="Spike5" parent="Title/Spikes" unique_id=1900802752 instance=ExtResource("6_v86rl")]
+position = Vector2(72, 152)
+
+[node name="Spike6" parent="Title/Spikes" unique_id=1485497904 instance=ExtResource("6_v86rl")]
+position = Vector2(64, 152)
+
+[node name="Spike7" parent="Title/Spikes" unique_id=938596937 instance=ExtResource("6_v86rl")]
+position = Vector2(160, 152)
+
+[node name="Spike8" parent="Title/Spikes" unique_id=396994427 instance=ExtResource("6_v86rl")]
+position = Vector2(176, 152)
+
+[node name="Spike9" parent="Title/Spikes" unique_id=1642291338 instance=ExtResource("6_v86rl")]
+position = Vector2(168, 152)
+
+[node name="Spike10" parent="Title/Spikes" unique_id=268659768 instance=ExtResource("6_v86rl")]
+position = Vector2(184, 152)
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=42958606]
 z_index = -10

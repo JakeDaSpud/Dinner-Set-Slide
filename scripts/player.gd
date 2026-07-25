@@ -12,7 +12,7 @@ extends CharacterBody2D
 
 @export var menu_mode: bool = false
 const _MENU_LEFT_SPAWN: Vector2 = Vector2(8, 0)
-const _MENU_RIGHT_SPAWN: Vector2 = Vector2()
+const _MENU_RIGHT_SPAWN: Vector2 = Vector2(248, 40)
 
 var _wall_bound: Area2D
 var _facing_right: bool = true
@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	if _is_out_of_bounds() && !menu_mode:
 		GameManager.on_level_failed.emit()
 	elif _is_out_of_bounds() && menu_mode:
-		pass
+		_set_next_menu_position()
 
 
 func _disable() -> void:
@@ -95,3 +95,11 @@ func _is_out_of_bounds() -> bool:
 	if position.y > _project_resolution.y + _OUT_OF_BOUNDS_MARGIN:
 		return true
 	return false
+
+
+func _set_next_menu_position() -> void:
+	if _facing_right:
+		position = _MENU_RIGHT_SPAWN
+	else:
+		position = _MENU_LEFT_SPAWN
+	_turn()
