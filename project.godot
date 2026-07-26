@@ -23,6 +23,7 @@ boot_splash/minimum_display_time=5000
 
 [autoload]
 
+AudioManager="*uid://ccrnx0kdk1mga"
 GameManager="*uid://bxkns2xqyhogp"
 
 [display]

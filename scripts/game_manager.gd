@@ -24,18 +24,14 @@ const TIME_BETWEEN_LEVELS: float = 6.0
 signal on_level_completed
 signal on_level_failed
 
-
 var _current_level: int = 0
 var _levels: Dictionary[int, String] = {
-	0: "res://scenes/menu.tscn",
+	0: "res://scenes/levels/menu.tscn",
 	1: "res://scenes/levels/level_1.tscn",
 	2: "res://scenes/levels/level_2.tscn",
 	3: "res://scenes/levels/level_3.tscn",
 	4: "res://scenes/levels/level_4.tscn",
-	5: "res://scenes/levels/level_5.tscn",
-	6: "res://scenes/levels/level_6.tscn",
-	7: "res://scenes/levels/level_7.tscn",
-	8: "res://scenes/levels/level_8.tscn",
+	5: "res://scenes/levels/end.tscn",
 }
 var dinner_set: DinnerSet = null
 var _tween: Tween = null
@@ -63,6 +59,8 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	
 	_current_scene = get_tree().current_scene
+	AudioManager.play_music(AudioManager.SOUND_TYPE.MENU)
+	
 	on_level_completed.connect(_next_level)
 	on_level_failed.connect(_deferred_restart_level)
 
@@ -100,6 +98,7 @@ func _tween_camera(duration: float) -> void:
 
 func _start_game():
 	_load_level(1)
+	AudioManager.play_music(AudioManager.SOUND_TYPE.LEVEL)
 
 
 func _process(delta: float) -> void:
@@ -129,6 +128,11 @@ func _load_level(level: int) -> void:
 	if _levels.has(level):
 		_current_level = level
 		get_tree().change_scene_to_file(_levels[_current_level])
+		# Play menu music
+		if level == 0 || level == 5:
+			AudioManager.play_music(AudioManager.SOUND_TYPE.MENU)
+		else:
+			AudioManager.play_music(AudioManager.SOUND_TYPE.LEVEL)
 	else:
 		print("Level " + str(level) + " not found.")
 

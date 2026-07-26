@@ -2,7 +2,7 @@ class_name Ice
 extends StaticBody2D
 
 enum SIZE { NULL, LARGE, MIDDLE, SMALL, MELTED }
-enum MENU_OPTION { NULL, REGENERATE, START, CREDITS, QUIT }
+enum MENU_OPTION { NULL, REGENERATE, START, CREDITS, QUIT, MENU }
 
 const ICE_LARGE: Texture2D = preload("res://assets/ice1.tres")
 const ICE_MIDDLE: Texture2D = preload("res://assets/ice2.tres")
@@ -71,18 +71,21 @@ func _change_to_small() -> void:
 	self.size = SIZE.SMALL
 	_change_collision_shape(2, 2, 1)
 	$Sprite.texture = ICE_SMALL
+	AudioManager.play_sound(AudioManager.SOUND_TYPE.ICE_BREAK_MIDDLE)
 
 
 func _change_to_middle() -> void:
 	self.size = SIZE.MIDDLE
 	_change_collision_shape(4, 4, 1)
 	$Sprite.texture = ICE_MIDDLE
+	AudioManager.play_sound(AudioManager.SOUND_TYPE.ICE_BREAK_LARGE)
 
 
 func _change_to_large() -> void:
 	self.size = SIZE.LARGE
 	_change_collision_shape(6, 6, -2)
 	$Sprite.texture = ICE_LARGE
+	# No audio here
 
 
 func _melt() -> void:
@@ -96,11 +99,14 @@ func _melt() -> void:
 			GameManager._show_credits()
 		elif _menu_option == MENU_OPTION.QUIT:
 			GameManager._quit()
+		elif _menu_option == MENU_OPTION.MENU:
+			GameManager._load_level(0)
 	
 	self.size = SIZE.MELTED
 	$PlayerCollision.disabled = true
 	$Sprite.hide()
 	self.process_mode = Node.PROCESS_MODE_DISABLED
+	AudioManager.play_sound(AudioManager.SOUND_TYPE.ICE_BREAK_SMALL)
 
 
 func _regen() -> void:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jmk6240a7be"
+path="res://.godot/imported/Middle Ice Break.mp3-a8ab71c81ac6cb18ec3aaffe496dd13b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Middle Ice Break.mp3"
+dest_files=["res://.godot/imported/Middle Ice Break.mp3-a8ab71c81ac6cb18ec3aaffe496dd13b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsubgkxeok32y"
+path="res://.godot/imported/Large Ice Break.mp3-18542d76b648d03b8d8a6e1f9ac127e6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Large Ice Break.mp3"
+dest_files=["res://.godot/imported/Large Ice Break.mp3-18542d76b648d03b8d8a6e1f9ac127e6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

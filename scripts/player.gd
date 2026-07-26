@@ -70,6 +70,7 @@ func _turn() -> void:
 	slide_speed *= -1
 	scale.x *= -1
 	_facing_right = !_facing_right
+	AudioManager.play_sound(AudioManager.SOUND_TYPE.BOUNCE)
 
 
 func _should_turn() -> bool:
